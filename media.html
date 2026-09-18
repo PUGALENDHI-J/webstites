@@ -9,7 +9,11 @@
   <link rel="icon" type="image/png" href="assets/favicon-32.png" sizes="32x32">
   <link rel="icon" type="image/png" href="assets/favicon-16.png" sizes="16x16">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Work+Sans:wght@300;400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Noto+Serif+Tamil:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/_devotional.css">
 </head>
 <body>
 
@@ -46,6 +50,15 @@
     </div>
   </div>
 </header>
+
+<!-- SACRED CHANT STRIP -->
+<div class="saranam-strip" aria-hidden="true">
+  <div class="saranam-track">
+    <span>Swamiye Saranam Ayyappa</span><span>ஸ்வாமியே சரணம் ஐயப்பா</span><span>Temple Service, Food &amp; Education for All</span><span>Harivarasanam Viswamohanam</span><span>கோவில் சேவை • உணவு • கல்வி</span>
+    <span>Swamiye Saranam Ayyappa</span><span>ஸ்வாமியே சரணம் ஐயப்பா</span><span>Temple Service, Food &amp; Education for All</span><span>Harivarasanam Viswamohanam</span><span>கோவில் சேவை • உணவு • கல்வி</span>
+  </div>
+</div>
+
 
 <main class="page-main">
   <section class="page-hero">
@@ -408,13 +421,35 @@
       <div class="footer-seal">
         <img class="logo-en" src="assets/logo-en.png" alt="Pallavaram Chennai Ayyappa Seva Sangham seal">
         <img class="logo-ta" src="assets/logo-ta.png" alt="பல்லாவரம் சென்னை ஆபத்பாந்தவன் ஐயப்பா சேவா சங்கம் முத்திரை">
-        <span data-en="© 2026 Abhath Bhanthavan Ayyappa Seva Sangham Trust. Registered Office: Zamin Pallavaram, Chennai." data-ta="© 2026 ஆபத்பாந்தவன் ஐயப்ப சேவா சங்கம் அறக்கட்டளை. பதிவு அலுவலகம்: ஜமீன் பல்லாவரம், சென்னை.">© 2026 Abhath Bhanthavan Ayyappa Seva Sangham Trust. Registered Office: Zamin Pallavaram, Chennai.</span>
+        <span data-en="© 2026 Abhath Bhanthavan Ayyappa Seva Sangham Trust (Regd). Registered Office: Zamin Pallavaram, Chennai." data-ta="© 2026 ஆபத்பாந்தவன் ஐயப்ப சேவா சங்கம் அறக்கட்டளை (பதிவு). பதிவு அலுவலகம்: ஜமீன் பல்லாவரம், சென்னை.">© 2026 Abhath Bhanthavan Ayyappa Seva Sangham Trust (Regd). Registered Office: Zamin Pallavaram, Chennai.</span>
       </div>
       <span data-en="Content curated and maintained by ABASS Trust administrators." data-ta="உள்ளடக்கம் ABASS அறக்கட்டளை நிர்வாகிகளால் தொகுக்கப்பட்டு பராமரிக்கப்படுகிறது.">Content curated and maintained by ABASS Trust administrators.</span>
     </div>
   </div>
 </footer>
 
+<!-- MOBILE QUICK SPONSOR & DONATE BAR -->
+<div class="mobile-quick-sponsor" role="region" aria-label="Quick sponsor and donate">
+  <div class="mqs-inner">
+    <div class="mqs-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21 C12 21 4 15.5 4 9.6 A4.6 4.6 0 0 1 12 6.4 A4.6 4.6 0 0 1 20 9.6 C20 15.5 12 21 12 21 Z"/></svg>
+    </div>
+    <select class="mqs-select" id="mqsSelect" aria-label="Choose a sponsorship or donation cause">
+      <option value="general" data-en="General Donation" data-ta="பொது நன்கொடை">General Donation</option>
+      <option value="padi" data-en="18 Padi Pooja" data-ta="18 படி பூஜை">18 Padi Pooja</option>
+      <option value="annadhaanam" data-en="Annadhaanam" data-ta="அன்னதானம்">Annadhaanam</option>
+      <option value="abhishekam" data-en="Maha Abhishekam" data-ta="மகா அபிஷேகம்">Maha Abhishekam</option>
+      <option value="mandala" data-en="Mandala Pooja" data-ta="மண்டல பூஜை">Mandala Pooja</option>
+      <option value="event" data-en="Event Sponsorship" data-ta="நிகழ்வு ஸ்பான்சர்ஷிப்">Event Sponsorship</option>
+      <option value="social" data-en="Social Activities" data-ta="சமூக நடவடிக்கைகள்">Social Activities</option>
+    </select>
+    <button type="button" class="btn btn-gold mqs-donate" id="mqsDonateBtn">
+      <span data-en="Donate" data-ta="நன்கொடை">Donate</span>
+    </button>
+  </div>
+</div>
+
 <script src="assets/script.js"></script>
+<script src="assets/_devotional.js"></script>
 </body>
 </html>

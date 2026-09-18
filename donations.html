@@ -9,7 +9,11 @@
   <link rel="icon" type="image/png" href="assets/favicon-32.png" sizes="32x32">
   <link rel="icon" type="image/png" href="assets/favicon-16.png" sizes="16x16">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Work+Sans:wght@300;400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Noto+Serif+Tamil:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/_devotional.css">
 </head>
 <body>
 
@@ -47,6 +51,15 @@
   </div>
 </header>
 
+<!-- SACRED CHANT STRIP -->
+<div class="saranam-strip" aria-hidden="true">
+  <div class="saranam-track">
+    <span>Swamiye Saranam Ayyappa</span><span>ஸ்வாமியே சரணம் ஐயப்பா</span><span>Temple Service, Food &amp; Education for All</span><span>Harivarasanam Viswamohanam</span><span>கோவில் சேவை • உணவு • கல்வி</span>
+    <span>Swamiye Saranam Ayyappa</span><span>ஸ்வாமியே சரணம் ஐயப்பா</span><span>Temple Service, Food &amp; Education for All</span><span>Harivarasanam Viswamohanam</span><span>கோவில் சேவை • உணவு • கல்வி</span>
+  </div>
+</div>
+
+
 <main class="page-main">
   <section class="page-hero">
     <div class="container">
@@ -71,6 +84,67 @@
           <img src="assets/images/gallery-16.jpg" alt="Temple & Community Welfare Projects" style="cursor:pointer; object-position:top center; width:100%; max-height:360px; object-fit:cover; border-radius:12px;" data-lightbox-src="assets/images/gallery-16.jpg" data-title-en="Temple Sanctum & Community Welfare" data-title-ta="கோவில் சன்னிதானம் & சமூக நலப்பணிகள்">
           <figcaption data-en="Community Temple Maintenance &amp; Seva Causes" data-ta="சமூக கோவில் பராமரிப்பு &amp; நற்பணி சேவைகள்">Community Temple Maintenance &amp; Seva Causes</figcaption>
         </figure>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SEVA SANKALPAM — SPONSOR SELECTOR (2nd section: first thing after the hero on mobile) -->
+  <section class="seva-sponsor" id="sponsor-seva">
+    <div class="container">
+      <div class="section-head center">
+        <div class="eyebrow">
+          <svg class="mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><polygon points="12,2 20,7 20,17 12,22 4,17 4,7"/><polygon points="12,2 4,7 20,7"/></svg>
+          <span data-en="Seva Sankalpam" data-ta="சேவா சங்கல்பம்">Seva Sankalpam</span>
+        </div>
+        <h2 data-en="Choose Your Seva, Offer in One Tap" data-ta="உங்கள் சேவையைத் தேர்ந்தெடுத்து ஒரே தொடுதலில் சமர்ப்பியுங்கள்">Choose Your Seva, Offer in One Tap</h2>
+        <p class="lede" data-en="Pick a pooja or cause from the list below. We will show you exactly what it covers, then carry your sankalpam straight to the Trustees on WhatsApp." data-ta="கீழே உள்ள பட்டியலிலிருந்து ஒரு பூஜை அல்லது சேவையைத் தேர்ந்தெடுங்கள். அது எதை உள்ளடக்குகிறது என்பதை காட்டி, உங்கள் சங்கல்பத்தை நேரடியாக அறங்காவலர்களுக்கு WhatsApp வழியாக அனுப்புகிறோம்.">Pick a pooja or cause from the list below. We will show you exactly what it covers, then carry your sankalpam straight to the Trustees on WhatsApp.</p>
+      </div>
+
+      <div class="seva-panel">
+        <div class="seva-panel-media" data-lightbox-src="assets/images/gallery-6.jpg" data-title-en="Sacred Floral Alankaram &amp; 18 Steps" data-title-ta="மலர் அலங்காரம் &amp; 18 புனித படிகள்" data-desc-en="Lord Ayyappa in full floral alankaram above the sacred 18 steps." data-desc-ta="18 புனித படிகளுக்கு மேல் முழு மலர் அலங்காரத்தில் ஸ்ரீ ஐயப்ப சுவாமி.">
+          <img src="assets/images/gallery-6.jpg" alt="Lord Ayyappa in floral alankaram above the sacred 18 steps" loading="lazy">
+          <div class="media-veil"></div>
+          <div class="media-copy">
+            <strong data-en="Every offering lights a lamp" data-ta="ஒவ்வொரு காணிக்கையும் ஒரு தீபம்">Every offering lights a lamp</strong>
+            <span data-en="Annadhaanam, Padi Pooja, Vilakku Pooja, Abhishekam, medical aid and scholarships — all sustained by devotees like you." data-ta="அன்னதானம், படி பூஜை, விளக்கு பூஜை, அபிஷேகம், மருத்துவ உதவி மற்றும் கல்வி உதவித்தொகை — அனைத்தும் உங்களைப் போன்ற பக்தர்களால் நடத்தப்படுகிறது.">Annadhaanam, Padi Pooja, Vilakku Pooja, Abhishekam, medical aid and scholarships — all sustained by devotees like you.</span>
+          </div>
+        </div>
+
+        <form class="seva-panel-form" data-seva-form>
+          <div class="seva-field">
+            <label for="sevaSelect" data-en="1. Select the seva you wish to sponsor" data-ta="1. நீங்கள் ஸ்பான்சர் செய்ய விரும்பும் சேவையைத் தேர்ந்தெடுக்கவும்">1. Select the seva you wish to sponsor</label>
+            <div class="seva-select-wrap">
+              <select class="seva-select" id="sevaSelect" name="seva" data-seva-select aria-label="Select the seva you wish to sponsor"></select>
+            </div>
+          </div>
+
+          <div class="seva-detail" data-seva-detail></div>
+
+          <div class="seva-field">
+            <label data-en="2. Choose your offering" data-ta="2. உங்கள் காணிக்கையைத் தேர்வு செய்யவும்">2. Choose your offering</label>
+            <div class="seva-chips" data-seva-chips></div>
+            <div class="seva-custom-amt" data-seva-custom style="display:none;">
+              <input type="number" name="customAmount" min="1" inputmode="numeric" placeholder="Enter amount in ₹" data-en-ph="Enter amount in ₹" data-ta-ph="தொகையை ₹-ல் உள்ளிடவும்">
+            </div>
+          </div>
+
+          <div class="seva-field">
+            <label data-en="3. Sankalpam details" data-ta="3. சங்கல்ப விவரங்கள்">3. Sankalpam details</label>
+            <input type="text" name="name" placeholder="Devotee name" data-en-ph="Devotee name" data-ta-ph="பக்தர் பெயர்" required>
+            <div class="seva-two" style="margin-top:12px;">
+              <input type="tel" name="mobile" placeholder="Mobile number" data-en-ph="Mobile number" data-ta-ph="மொபைல் எண்" required>
+              <input type="text" name="star" placeholder="Star / Gothram (optional)" data-en-ph="Star / Gothram (optional)" data-ta-ph="நட்சத்திரம் / கோத்திரம் (விருப்பம்)">
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-gold seva-submit">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="width:18px;height:18px;"><path d="M12 21 C12 21 4 15.5 4 9.6 A4.6 4.6 0 0 1 12 6.4 A4.6 4.6 0 0 1 20 9.6 C20 15.5 12 21 12 21 Z"/></svg>
+            <span data-en="Send Sankalpam on WhatsApp" data-ta="சங்கல்பத்தை WhatsApp-ல் அனுப்பவும்">Send Sankalpam on WhatsApp</span>
+          </button>
+
+          <p class="seva-note" data-en="No payment is taken on this page. A Trustee will confirm your sankalpam and share the official bank / UPI details and receipt." data-ta="இந்தப் பக்கத்தில் பணம் பெறப்படுவதில்லை. ஒரு அறங்காவலர் உங்கள் சங்கல்பத்தை உறுதிப்படுத்தி, அதிகாரப்பூர்வ வங்கி / UPI விவரங்கள் மற்றும் ரசீதைப் பகிர்வார்.">No payment is taken on this page. A Trustee will confirm your sankalpam and share the official bank / UPI details and receipt.</p>
+        </form>
       </div>
     </div>
   </section>
@@ -282,13 +356,35 @@
       <div class="footer-seal">
         <img class="logo-en" src="assets/logo-en.png" alt="Pallavaram Chennai Ayyappa Seva Sangham seal">
         <img class="logo-ta" src="assets/logo-ta.png" alt="பல்லாவரம் சென்னை ஆபத்பாந்தவன் ஐயப்பா சேவா சங்கம் முத்திரை">
-        <span data-en="© 2026 Abhath Bhanthavan Ayyappa Seva Sangham Trust. Registered Office: Zamin Pallavaram, Chennai." data-ta="© 2026 ஆபத்பாந்தவன் ஐயப்ப சேவா சங்கம் அறக்கட்டளை. பதிவு அலுவலகம்: ஜமீன் பல்லாவரம், சென்னை.">© 2026 Abhath Bhanthavan Ayyappa Seva Sangham Trust. Registered Office: Zamin Pallavaram, Chennai.</span>
+        <span data-en="© 2026 Abhath Bhanthavan Ayyappa Seva Sangham Trust (Regd). Registered Office: Zamin Pallavaram, Chennai." data-ta="© 2026 ஆபத்பாந்தவன் ஐயப்ப சேவா சங்கம் அறக்கட்டளை (பதிவு). பதிவு அலுவலகம்: ஜமீன் பல்லாவரம், சென்னை.">© 2026 Abhath Bhanthavan Ayyappa Seva Sangham Trust (Regd). Registered Office: Zamin Pallavaram, Chennai.</span>
       </div>
       <span data-en="Content curated and maintained by ABASS Trust administrators." data-ta="உள்ளடக்கம் ABASS அறக்கட்டளை நிர்வாகிகளால் தொகுக்கப்பட்டு பராமரிக்கப்படுகிறது.">Content curated and maintained by ABASS Trust administrators.</span>
     </div>
   </div>
 </footer>
 
+<!-- MOBILE QUICK SPONSOR & DONATE BAR -->
+<div class="mobile-quick-sponsor" role="region" aria-label="Quick sponsor and donate">
+  <div class="mqs-inner">
+    <div class="mqs-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21 C12 21 4 15.5 4 9.6 A4.6 4.6 0 0 1 12 6.4 A4.6 4.6 0 0 1 20 9.6 C20 15.5 12 21 12 21 Z"/></svg>
+    </div>
+    <select class="mqs-select" id="mqsSelect" aria-label="Choose a sponsorship or donation cause">
+      <option value="general" data-en="General Donation" data-ta="பொது நன்கொடை">General Donation</option>
+      <option value="padi" data-en="18 Padi Pooja" data-ta="18 படி பூஜை">18 Padi Pooja</option>
+      <option value="annadhaanam" data-en="Annadhaanam" data-ta="அன்னதானம்">Annadhaanam</option>
+      <option value="abhishekam" data-en="Maha Abhishekam" data-ta="மகா அபிஷேகம்">Maha Abhishekam</option>
+      <option value="mandala" data-en="Mandala Pooja" data-ta="மண்டல பூஜை">Mandala Pooja</option>
+      <option value="event" data-en="Event Sponsorship" data-ta="நிகழ்வு ஸ்பான்சர்ஷிப்">Event Sponsorship</option>
+      <option value="social" data-en="Social Activities" data-ta="சமூக நடவடிக்கைகள்">Social Activities</option>
+    </select>
+    <button type="button" class="btn btn-gold mqs-donate" id="mqsDonateBtn">
+      <span data-en="Donate" data-ta="நன்கொடை">Donate</span>
+    </button>
+  </div>
+</div>
+
 <script src="assets/script.js"></script>
+<script src="assets/_devotional.js"></script>
 </body>
 </html>

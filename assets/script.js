@@ -1,10 +1,11 @@
 // ============ LANGUAGE SWITCHER ============
 var currentLang = 'en';
+var LANG_STORAGE_KEY = 'abass_lang';
 
 (function(){
   var buttons = document.querySelectorAll('.lang-btn');
 
-  window.applyLang = function(lang){
+  window.applyLang = function(lang, skipSave){
     currentLang = lang;
     var translatable = document.querySelectorAll('[data-en]');
     var placeholders = document.querySelectorAll('[data-en-ph]');
@@ -23,6 +24,11 @@ var currentLang = 'en';
     document.body.classList.toggle('lang-ta', lang === 'ta');
     document.documentElement.setAttribute('lang', lang === 'ta' ? 'ta' : 'en');
 
+    // Persist the choice so it carries over to every other page
+    if(!skipSave){
+      try { window.localStorage.setItem(LANG_STORAGE_KEY, lang); } catch(e){}
+    }
+
     // Update lightbox if open
     if(window.updateLightboxCaption) {
       window.updateLightboxCaption();
@@ -33,7 +39,13 @@ var currentLang = 'en';
     b.addEventListener('click', function(){ window.applyLang(b.getAttribute('data-lang')); });
   });
 
-  window.applyLang('en');
+  // Restore the last-chosen language (falls back to English on first visit)
+  var savedLang = 'en';
+  try {
+    var stored = window.localStorage.getItem(LANG_STORAGE_KEY);
+    if(stored === 'en' || stored === 'ta'){ savedLang = stored; }
+  } catch(e){}
+  window.applyLang(savedLang, true);
 })();
 
 // ============ OBJECTS OF TRUST ACCORDION ============
@@ -100,6 +112,25 @@ document.querySelectorAll('.obj-head').forEach(function(head){
       var message=(data.get('message')||'').trim();
       var type=(data.get('type')||'Website enquiry').trim();
       var text='ABASS Website Enquiry\n\nName: '+name+'\nType: '+type+'\nMessage: '+message;
+      window.open('https://wa.me/'+phone+'?text='+encodeURIComponent(text),'_blank','noopener');
+    });
+  });
+})();
+
+// ============ EVENT CONTRIBUTION (WHATSAPP) ============
+(function(){
+  var phone='919841820668';
+  document.querySelectorAll('[data-contribution-form]').forEach(function(form){
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      var data=new FormData(form);
+      var event=(data.get('event')||'').trim();
+      var name=(data.get('name')||'').trim();
+      var mobile=(data.get('mobile')||'').trim();
+      var place=(data.get('place')||'').trim();
+      var pincode=(data.get('pincode')||'').trim();
+      var amount=(data.get('amount')||'').trim();
+      var text='ABASS Contribution\n\nEvent: '+event+'\nContributor Name: '+name+'\nMobile: '+mobile+'\nPlace: '+place+'\nPin Code: '+pincode+'\nAmount: Rs. '+amount+'\n\n(Payment done via QR code — please confirm.)';
       window.open('https://wa.me/'+phone+'?text='+encodeURIComponent(text),'_blank','noopener');
     });
   });
@@ -414,6 +445,32 @@ document.querySelectorAll('.obj-head').forEach(function(head){
   });
 
   startAutoPlay();
+})();
+
+// ============ MOBILE QUICK SPONSOR & DONATE BAR ============
+(function(){
+  var select = document.getElementById('mqsSelect');
+  var btn = document.getElementById('mqsDonateBtn');
+  if(!select || !btn) return;
+
+  var phone = '919841820668';
+  var messages = {
+    general:     { en:'Swamiye Saranam Ayyappa! I would like to make a general donation to ABASS.', ta:'சுவாமியே சரணம் ஐயப்பா! நான் ABASS-க்கு பொது நன்கொடை வழங்க விரும்புகிறேன்.' },
+    padi:        { en:'Swamiye Saranam Ayyappa! I would like to know more about the 18 Padi Pooja sponsorship at ABASS.', ta:'சுவாமியே சரணம் ஐயப்பா! ABASS-ல் 18 படி பூஜை ஸ்பான்சர்ஷிப் பற்றி மேலும் அறிய விரும்புகிறேன்.' },
+    annadhaanam: { en:'Swamiye Saranam Ayyappa! I wish to sponsor Annadhaanam Mahadhanam at ABASS. Please share the details.', ta:'சுவாமியே சரணம் ஐயப்பா! ABASS-ல் அன்னதான மகாதானத்தை ஸ்பான்சர் செய்ய விரும்புகிறேன். விவரங்களைப் பகிரவும்.' },
+    abhishekam:  { en:'Swamiye Saranam Ayyappa! I would like to enquire about Maha Abhishekam sponsorship at ABASS.', ta:'சுவாமியே சரணம் ஐயப்பா! ABASS-ல் மகா அபிஷேக ஸ்பான்சர்ஷிப் பற்றி விசாரிக்க விரும்புகிறேன்.' },
+    mandala:     { en:'Swamiye Saranam Ayyappa! I would like to know about Mandala Pooja sponsorship at ABASS.', ta:'சுவாமியே சரணம் ஐயப்பா! ABASS-ல் மண்டல பூஜை ஸ்பான்சர்ஷிப் பற்றி அறிய விரும்புகிறேன்.' },
+    event:       { en:'Swamiye Saranam Ayyappa! I would like to sponsor an event at ABASS. Please share the details.', ta:'சுவாமியே சரணம் ஐயப்பா! ABASS-ல் ஒரு நிகழ்வை ஸ்பான்சர் செய்ய விரும்புகிறேன். விவரங்களைப் பகிரவும்.' },
+    social:      { en:'Swamiye Saranam Ayyappa! I would like to support the social welfare activities at ABASS.', ta:'சுவாமியே சரணம் ஐயப்பா! ABASS-ன் சமூக நலன் நடவடிக்கைகளை ஆதரிக்க விரும்புகிறேன்.' }
+  };
+
+  btn.addEventListener('click', function(){
+    var key = select.value;
+    var msgObj = messages[key] || messages.general;
+    var lang = (window.currentLang === 'ta') ? 'ta' : 'en';
+    var text = msgObj[lang] || msgObj.en;
+    window.open('https://wa.me/' + phone + '?text=' + encodeURIComponent(text), '_blank', 'noopener');
+  });
 })();
 
 // ============ HERO IMAGE SLIDESHOW TRANSITION ============
