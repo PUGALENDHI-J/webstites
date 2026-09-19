@@ -72,3 +72,27 @@ TESTED
    Chromium at 360px, 390px, 768px and 1440px across all 10 pages:
    no horizontal overflow, no JavaScript errors, EN/TA switching
    verified on the new dropdown and hero caption.
+
+================================================================
+REVIEW ROUND — 19 September 2026
+================================================================
+1. Header name on every page now reads "Abhath Bhanthavan Ayyappa
+   Seva Sangham" (was "Ayyappa Seva Sangham Trust").
+2. "80 years" removed: About-page hero wording, and the 80-year
+   emblem retouched out of assets/images/gallery-15.jpg (the poster).
+3. Seva Sankalpam now lists ONLY upcoming events (same four as
+   events.html). Edit the SEVAS array in assets/_devotional.js.
+   Items with data-until="YYYY-MM-DD" (events.html, mobile bar) and
+   `until` in SEVAS disappear automatically after that date.
+4. All donation amounts removed (Sankalpam form, Donations page cards,
+   WhatsApp messages). The Events-page "Contribute" form still has a
+   typed "Amount" field for reconciliation.
+5. Home page: duplicate giving-journey block removed (it lives on
+   donations.html). Mobile bar options = General, Social Welfare and
+   the upcoming events.
+6. Objects of the Trust: all 45 deed clauses, grouped in 6 categories
+   (objects.html full list; home shows summaries + links). Clauses
+   (x) and (z) are identical in the deed and shown together.
+7. Media: filters are now event folders (18 Padi Pooja, Thiru Vilakku
+   Pooja, Annadhaanam, Maha Abhishekam, Mandala Pooja & Utsavam).
+   A photo can sit in more than one folder via data-category.

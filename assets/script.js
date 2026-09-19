@@ -1,3 +1,15 @@
+// ============ HIDE EVENTS THAT HAVE ALREADY HAPPENED ============
+// Any element with data-until="YYYY-MM-DD" (last day of the event, inclusive)
+// is removed once that day has passed, so only upcoming events are offered.
+(function(){
+  var d = new Date();
+  var m = d.getMonth() + 1, day = d.getDate();
+  var today = d.getFullYear() + '-' + (m < 10 ? '0' : '') + m + '-' + (day < 10 ? '0' : '') + day;
+  document.querySelectorAll('[data-until]').forEach(function(el){
+    if(el.getAttribute('data-until') < today){ el.parentNode.removeChild(el); }
+  });
+})();
+
 // ============ LANGUAGE SWITCHER ============
 var currentLang = 'en';
 var LANG_STORAGE_KEY = 'abass_lang';
@@ -129,8 +141,7 @@ document.querySelectorAll('.obj-head').forEach(function(head){
       var mobile=(data.get('mobile')||'').trim();
       var place=(data.get('place')||'').trim();
       var pincode=(data.get('pincode')||'').trim();
-      var amount=(data.get('amount')||'').trim();
-      var text='ABASS Contribution\n\nEvent: '+event+'\nContributor Name: '+name+'\nMobile: '+mobile+'\nPlace: '+place+'\nPin Code: '+pincode+'\nAmount: Rs. '+amount+'\n\n(Payment done via QR code — please confirm.)';
+      var text='ABASS Contribution\n\nEvent: '+event+'\nContributor Name: '+name+'\nMobile: '+mobile+'\nPlace: '+place+'\nPin Code: '+pincode+'\n\n(Payment done via QR code — please confirm.)';
       window.open('https://wa.me/'+phone+'?text='+encodeURIComponent(text),'_blank','noopener');
     });
   });
@@ -455,13 +466,12 @@ document.querySelectorAll('.obj-head').forEach(function(head){
 
   var phone = '919841820668';
   var messages = {
-    general:     { en:'Swamiye Saranam Ayyappa! I would like to make a general donation to ABASS.', ta:'சுவாமியே சரணம் ஐயப்பா! நான் ABASS-க்கு பொது நன்கொடை வழங்க விரும்புகிறேன்.' },
-    padi:        { en:'Swamiye Saranam Ayyappa! I would like to know more about the 18 Padi Pooja sponsorship at ABASS.', ta:'சுவாமியே சரணம் ஐயப்பா! ABASS-ல் 18 படி பூஜை ஸ்பான்சர்ஷிப் பற்றி மேலும் அறிய விரும்புகிறேன்.' },
-    annadhaanam: { en:'Swamiye Saranam Ayyappa! I wish to sponsor Annadhaanam Mahadhanam at ABASS. Please share the details.', ta:'சுவாமியே சரணம் ஐயப்பா! ABASS-ல் அன்னதான மகாதானத்தை ஸ்பான்சர் செய்ய விரும்புகிறேன். விவரங்களைப் பகிரவும்.' },
-    abhishekam:  { en:'Swamiye Saranam Ayyappa! I would like to enquire about Maha Abhishekam sponsorship at ABASS.', ta:'சுவாமியே சரணம் ஐயப்பா! ABASS-ல் மகா அபிஷேக ஸ்பான்சர்ஷிப் பற்றி விசாரிக்க விரும்புகிறேன்.' },
-    mandala:     { en:'Swamiye Saranam Ayyappa! I would like to know about Mandala Pooja sponsorship at ABASS.', ta:'சுவாமியே சரணம் ஐயப்பா! ABASS-ல் மண்டல பூஜை ஸ்பான்சர்ஷிப் பற்றி அறிய விரும்புகிறேன்.' },
-    event:       { en:'Swamiye Saranam Ayyappa! I would like to sponsor an event at ABASS. Please share the details.', ta:'சுவாமியே சரணம் ஐயப்பா! ABASS-ல் ஒரு நிகழ்வை ஸ்பான்சர் செய்ய விரும்புகிறேன். விவரங்களைப் பகிரவும்.' },
-    social:      { en:'Swamiye Saranam Ayyappa! I would like to support the social welfare activities at ABASS.', ta:'சுவாமியே சரணம் ஐயப்பா! ABASS-ன் சமூக நலன் நடவடிக்கைகளை ஆதரிக்க விரும்புகிறேன்.' }
+    general:        { en:'Swamiye Saranam Ayyappa! I would like to make a general donation to ABASS.', ta:'சுவாமியே சரணம் ஐயப்பா! நான் ABASS-க்கு பொது நன்கொடை வழங்க விரும்புகிறேன்.' },
+    social:         { en:'Swamiye Saranam Ayyappa! I would like to support the social welfare activities at ABASS.', ta:'சுவாமியே சரணம் ஐயப்பா! ABASS-ன் சமூக நலன் நடவடிக்கைகளை ஆதரிக்க விரும்புகிறேன்.' },
+    annadhaanam:    { en:'Swamiye Saranam Ayyappa! I wish to sponsor the Monthly Annadhaanam at ABASS. Please share the details.', ta:'சுவாமியே சரணம் ஐயப்பா! ABASS-ல் மாதாந்திர அன்னதானத்தை ஸ்பான்சர் செய்ய விரும்புகிறேன். விவரங்களைப் பகிரவும்.' },
+    kumbabhishekam: { en:'Swamiye Saranam Ayyappa! I wish to sponsor the Bharathi Nagar Pillayar Koil Kumbabhishekam Annadhaanam (27-30 Oct 2026). Please share the details.', ta:'சுவாமியே சரணம் ஐயப்பா! பாரதி நகர் பிள்ளையார் கோவில் கும்பாபிஷேக அன்னதானத்தை (27-30 அக் 2026) ஸ்பான்சர் செய்ய விரும்புகிறேன். விவரங்களைப் பகிரவும்.' },
+    padi:           { en:'Swamiye Saranam Ayyappa! I would like to sponsor the Yearly Padi Pooja (12 Dec 2026) at ABASS. Please share the details.', ta:'சுவாமியே சரணம் ஐயப்பா! ABASS-ல் ஆண்டு படி பூஜையை (12 டிச 2026) ஸ்பான்சர் செய்ய விரும்புகிறேன். விவரங்களைப் பகிரவும்.' },
+    vilakku:        { en:'Swamiye Saranam Ayyappa! I would like to sponsor the Yearly Vilakku Pooja (19 Dec 2026) at ABASS. Please share the details.', ta:'சுவாமியே சரணம் ஐயப்பா! ABASS-ல் ஆண்டு விளக்கு பூஜையை (19 டிச 2026) ஸ்பான்சர் செய்ய விரும்புகிறேன். விவரங்களைப் பகிரவும்.' }
   };
 
   btn.addEventListener('click', function(){
